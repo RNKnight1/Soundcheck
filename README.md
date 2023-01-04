@@ -1,6 +1,5 @@
 # Tastify
 ## Description:
---- 
 Flask web app to analyze your Spotify listening habits
 
 Login with your Spotify account, and wait for the app to process your data, and it will provide your top artists and top tracks from three timelines of 4 weeks, 6 months, and lifetime. It will also provide a list of the most dancable, happiest and energetic tracks you listen to, your top genres, and the average features of your tracks.
@@ -20,3 +19,10 @@ flask run
 ```
 
 and press the link. You will be presented with the Login button.
+
+## Preview
+![Profile](/images/Profile.png)
+![Tracks](/images/Tracks.png)
+![Artists](/images/Artists.png)
+![Ranked](/images/Feature.png)
+![Average](/images/FeatureTable.png)

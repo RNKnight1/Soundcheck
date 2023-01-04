@@ -145,7 +145,7 @@
                 {% for artist in top_artists['short_term'][:6] %}
                 <div class="col">
                     <div class="card bg-c">
-                        <img src={{ artist['images'][0]['url'] }} class="card-img-top" alt="...">
+                        <img src={{ artist['images'][0]['url'] }} class="artist-card card-img-top" alt="...">
                         <div class="card-body">
                             {% if artist['name'] | length > 20 %}
                                 <h5 class="card-title">{{ artist['name'][:18] | trim }}...</h5>
@@ -179,7 +179,7 @@
                 {% for artist in top_artists['long_term'][:6] %}
                 <div class="col">
                     <div class="card bg-c">
-                        <img src={{ artist['images'][0]['url'] }} class="card-img-top" alt="..." style="aspect-ratio: 1; height: auto; width: 100%; object-fit: cover;">
+                        <img src={{ artist['images'][0]['url'] }} class="card-img-top artist-card" alt="..." style="aspect-ratio: 1; height: auto; width: 100%; object-fit: cover;">
                         <div class="card-body">
                             {% if artist['name'] | length > 20 %}
                                 <h5 class="card-title">{{ artist['name'][:18] | trim }}...</h5>

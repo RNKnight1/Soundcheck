@@ -57,11 +57,15 @@ def after_request(response):
     return response
 '''
 
+@app.route("/landing")
+def landing():
+    return render_template("landing.html")
+
 @app.route("/")
-@cache.cached()
+@cache.cached(unless=lambda x: not session.get("access_token"))
 def index():
     if not session.get("access_token"):
-        return render_template("landing.html")
+        return redirect("/landing")
     
     else:
         try:
@@ -89,7 +93,7 @@ def index():
                     else:
                         genre_list[genre] += 1
             genre_list = sorted(genre_list.items(), key=lambda d: d[1], reverse=True)
-            print(genre_list)
+
 
             features_list = [0, 0, 0, 0, 0, 0, 0, 0, 0]
             feature_track_list = []
@@ -118,6 +122,7 @@ def index():
                 features_list[i] = round(features_list[i] * 10) 
             for i in range(9)[3:]:
                 features_list[i] = round(features_list[i] / 50, 3)
+
             return render_template("index.html", username=username, image_url=image_url, top_tracks=time_track_lists, top_artists=time_artist_lists, features=features_list, list_dict=list_dict, genre_list=genre_list)
         except KeyError:
             session.clear()
