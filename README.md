@@ -1,4 +1,4 @@
-# Tastify
+# Soundcheck
 ## Description:
 Flask web app to analyze your Spotify listening habits
 
