@@ -1,0 +1,6 @@
+Flask==2.2.2
+Flask-Caching==2.0.1
+Flask-Session==0.4.0
+requests
+cs50
+
