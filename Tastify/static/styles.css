@@ -1,0 +1,186 @@
+.login {
+    background-color: #1DB954;
+    color: #FFFFFF;
+}
+
+.info {
+    display: block;
+}
+
+.pfp {
+    float: left;
+    display: block;
+    height: 288px;
+    width: 288px;
+}
+
+.bg-c {
+    background-color: #252020;
+}
+
+.dark-bg-c {
+    background-color: #191414;
+    color: #FFFFFF;
+}
+
+.profile {
+    display: inline-block;
+    background-color: #252020;
+    color: lightgray;
+    border-radius: 10px;
+}
+
+.sub-box {
+    display: inline-block;
+    background-color: #191414;
+    color: lightgray;
+    border-radius: 10px;
+}
+
+.username {
+    float: left;
+    display: block;
+    width: 442px;
+    height: 56px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #AAAAAA;
+}
+
+.feature {
+    float: left;
+    width: 200px;
+    height: 16px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+
+
+}
+
+.vprogress {
+    float: left;
+    display: block;
+    height: 4px;
+
+    background: #1DB954;
+    border-radius: 1000px 1000px 1000px 1000px;
+}
+
+.dprogress {
+    float: left;
+    display: block;
+    height: 4px;
+
+    background: #B9541D;
+    border-radius: 1000px 1000px 1000px 1000px;
+}
+
+.eprogress {
+    float: left;
+    display: block;
+    height: 4px;
+
+    background: #541DB9;
+    border-radius: 1000px 1000px 1000px 1000px;
+}
+
+.bar {
+    float: left;
+    display: block;
+    width: 500px;
+    height: 4px;
+
+    background: #FFFFFF;
+    border-radius: 50px;
+}
+
+.box-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #FFFFFF;
+}
+
+.switcher-btn {
+    display: inline; 
+    background-color:#191414;
+    color:#FFFFFF; 
+    border-radius: 50px; 
+    border: none
+}
+
+.btn-div {
+    display: inline; 
+    background-color:#191414; 
+    border-radius: 50px; 
+    float: right
+}
+
+.artist-card {
+    aspect-ratio: 1; 
+    height: auto; 
+    width: 100%; 
+    object-fit: cover;
+}
+
+.feat-table {
+    background-color: #191414; 
+    color: #FFFFFF; 
+    width: 100%;
+}
+/*
+.box {
+    border-radius: 10px;
+    width: 12rem;
+    display: inline-block;
+}
+
+.color {
+    background-color: #191414;
+    color: #FFFFFF;
+}
+
+.obj-img {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.pfp {
+    position: absolute;
+    width: 256px;
+    height: 256px;
+    left: 79px;
+    top: 72px;
+}
+
+.profile {
+    display: inline-block;
+    margin: 5% 15%;
+    position: absolute;
+    width: 1202px;
+    height: 394px;
+    left: 39px;
+    top: 32px;
+}
+*/
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #191414;
+    color: #FFFFFF;
+}

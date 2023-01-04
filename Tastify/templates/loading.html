@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block main%}
+<script>
+    t1 = window.setTimeout(function(){ window.location = "/"; },1000);;
+</script>
+<div class="text-center" style="width:100%; height:100%">
+<div class="position-relative" style="width:100%; height:100%">
+    <div class="py-5 position-absolute top-100 start-50 translate-middle-x" id="loading" style="background-color: #252020; width: 30%; border-radius: 25px;">
+        <img src="/static/loading.gif" alt="" />
+        <br>
+        <h1 class="py-5">Processing your complex listening habits!</h1>
+    </div>
+</div>
+{% endblock %}

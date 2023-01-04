@@ -1,0 +1,405 @@
+{% extends "layout.html" %}
+
+{% block bg%}"background: #191414" {% endblock %}
+
+{% block main %}
+    <script src="/static/switcher.js"></script>
+    <div class="container-fluid profile py-2">
+        <div>
+            <img class="px-3 py-3 pfp" src={{ image_url }}>
+        </div>
+        <div class="px-2 py-2 mb-auto info">
+            <h2 class="py-2">Aurelia</h2>
+            <div class="feature mt-3 py-0">
+                V A L E N C E
+            </div>
+            <div class="bar mx-5 my-4">
+                <div class="vprogress my-0 ms-0" style="width: {{ features[0] }}px;"></div>
+            </div>
+            <br>  
+            <br>
+            <br>
+            <div class="feature mt-2 py-0">
+                D A N C E A B I L I T Y
+            </div>
+            <div class="bar mx-5 my-3">
+                <div class="dprogress my-0 ms-0" style="width: {{ features[1] }}px;"></div>
+            </div>
+            <br>
+            <br>
+            <br> 
+            <div class="feature mt-0 py-0">
+                E N E R G Y
+            </div>
+            <div class="bar mx-5 my-2">
+                <div class="eprogress my-0 ms-0" style="width: {{ features[2] }}px;"></div>
+            </div>
+            <br>
+            <br>
+
+            <div class="py-3" style="display: inline-block; float: left;">
+            {% for genre in genre_list[:5] %}
+                <div class="dark-bg-c mx-2" style="float: left; display: inline; border-radius: 50px; border: 1px solid #504545">
+                    <h5 class="py-3, px-3">{{ genre[0] }}</h5>
+                </div>
+            {% endfor %}
+            </div>
+            <!--
+            <div class="feature mt-3">
+                D A N C E A B I L I T Y
+            </div>
+            <div class="vprogress my-4 ms-2"></div>
+            <div class="vbar my-4"></div>
+            <div class="feature mt-3">
+                E N E R G Y
+            </div>            
+            <div class="vbar my-4">
+                <div class="vprogress my-4 ms-2"></div>
+            </div>-->
+        </div>
+    </div>
+    <div class="container-fluid profile my-5">
+        <br>
+        <br>
+        <br>
+        <h2 class="mx-5 py-5 box-title" style="display: inline">Tracks</h2>
+        <div class="px-1 py-1 btn-div">
+            <button id="t4btn" class="switcher-btn px-2 py-2" style="background-color: #504545" onclick="t4()">4 WEEKS</button>
+            <button id="t6btn" class="switcher-btn px-2 py-2" onclick="t6()">6 MONTHS</button>
+            <button id="tlbtn" class="switcher-btn px-2 py-2" onclick="tl()">LIFETIME</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="sub-box mx-5 mt-0 mb-5">
+            <div id="t4" class="row row-cols-5 row-cols-md-6 g-4 mx-5 my-5">
+                {% for track in top_tracks['short_term'][:6] %}
+                <div class="col">
+                    <div class="card bg-c">
+                        <img src={{ track['album']['images'][0]['url'] }} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            {% if track['name'] | length > 20 %}
+                                <h5 class="card-title">{{ track['name'][:18] | trim }}...</h5>
+                            {% else %}
+                                <h5 class="card-title">{{ track['name'] }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ track['artists'][0]['name']}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div id="t6" class="row row-cols-5 row-cols-md-6 g-4 mx-5 my-5" style="display: none;">
+                {% for track in top_tracks['medium_term'][:6] %}
+                <div class="col">
+                    <div class="card bg-c">
+                        <img src={{ track['album']['images'][0]['url'] }} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            {% if track['name'] | length > 20 %}
+                                <h5 class="card-title">{{ track['name'][:18] | trim }}...</h5>
+                            {% else %}
+                                <h5 class="card-title">{{ track['name'] }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ track['artists'][0]['name']}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div id="tl" class="row row-cols-5 row-cols-md-6 g-4 mx-5 my-5" style="display: none;">
+                {% for track in top_tracks['long_term'][:6] %}
+                <div class="col">
+                    <div class="card bg-c">
+                        <img src={{ track['album']['images'][0]['url'] }} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            {% if track['name'] | length > 20 %}
+                                <h5 class="card-title">{{ track['name'][:18] | trim }}...</h5>
+                            {% else %}
+                                <h5 class="card-title">{{ track['name'] }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ track['artists'][0]['name']}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid profile mb-5">
+        <br>
+        <br>
+        <br>
+        <h2 class="mx-5 py-5 box-title" style="display: inline">Artists</h2>
+        <div class="px-1 py-1 btn-div">
+            <button id="a4btn" class="switcher-btn px-2 py-2" style="background-color: #504545" onclick="a4()">4 WEEKS</button>
+            <button id="a6btn" class="switcher-btn px-2 py-2" onclick="a6()">6 MONTHS</button>
+            <button id="albtn" class="switcher-btn px-2 py-2" onclick="al()">LIFETIME</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="sub-box mx-5 mt-0 mb-5">
+            <div id="a4" class="row row-cols-5 row-cols-md-6 g-4 mx-5 my-5">
+                {% for artist in top_artists['short_term'][:6] %}
+                <div class="col">
+                    <div class="card bg-c">
+                        <img src={{ artist['images'][0]['url'] }} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            {% if artist['name'] | length > 20 %}
+                                <h5 class="card-title">{{ artist['name'][:18] | trim }}...</h5>
+                            {% else %}
+                                <h5 class="card-title">{{ artist['name'] }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ artist['followers']['total']}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div id="a6" class="row row-cols-5 row-cols-md-6 g-4 mx-5 my-5" style="display: none;">
+                {% for artist in top_artists['medium_term'][:6] %}
+                <div class="col">
+                    <div class="card bg-c">
+                        <img src={{ artist['images'][0]['url'] }} class="card-img-top artist-card" alt="..." >
+                        <div class="card-body">
+                            {% if artist['name'] | length > 20 %}
+                                <h5 class="card-title">{{ artist['name'][:18] | trim }}...</h5>
+                            {% else %}
+                                <h5 class="card-title">{{ artist['name'] }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ artist['followers']['total']}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div id="al" class="row row-cols-5 row-cols-md-6 g-4 mx-5 my-5" style="display: none;">
+                {% for artist in top_artists['long_term'][:6] %}
+                <div class="col">
+                    <div class="card bg-c">
+                        <img src={{ artist['images'][0]['url'] }} class="card-img-top" alt="..." style="aspect-ratio: 1; height: auto; width: 100%; object-fit: cover;">
+                        <div class="card-body">
+                            {% if artist['name'] | length > 20 %}
+                                <h5 class="card-title">{{ artist['name'][:18] | trim }}...</h5>
+                            {% else %}
+                                <h5 class="card-title">{{ artist['name'] }}</h5>
+                            {% endif %}
+                            <p class="card-text">{{ artist['followers']['total']}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid profile my-5">
+        <br>
+        <br>
+        <br>
+        <h2 class="mx-5 py-5 box-title" style="display: inline">Your Songs Ranked by Feature</h2>
+        <div class="px-1 py-1 btn-div">
+            <button id="vbtn" class="switcher-btn px-2 py-2" style="background-color: #504545" onclick="valence()">VALENCE</button>
+            <button id="dbtn" class="switcher-btn px-2 py-2" onclick="dance()">DANCEABILITY</button>
+            <button id="ebtn" class="switcher-btn px-2 py-2" onclick="energy()">ENERGY</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="valence" class="sub-box px-5 mt-0 mb-5" style="width: 100%">
+            <table class="table my-3 px-5 text-center feat-table">
+                <thead>
+                    <tr>
+                        <th class="text-start" scope="col">T I T L E</th>
+                        <th scope="col">A R T I S T</th>
+                        <th scope="col">V A L E N C E</th>
+                        <th scope="col">D A N C E A B I L I T Y</th>
+                        <th scope="col">E N E R G Y</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for track in list_dict['valence'][:10] %}
+                        <tr>
+                            <th class="text-start" scope="row">{{ track['name'] }}</th>
+                            <td>{{ track['artist'] }}</td>
+                            <td>{{ track['valence'] }}</td>
+                            <td>{{ track['danceability'] }}</td>
+                            <td>{{ track['energy'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="dance" class="sub-box px-5 mt-0 mb-5" style="width: 100%; display: none;">
+            <table class="table my-3 px-5 text-center feat-table">
+                <thead>
+                    <tr>
+                        <th class="text-start" scope="col">T I T L E</th>
+                        <th scope="col">A R T I S T</th>
+                        <th scope="col">V A L E N C E</th>
+                        <th scope="col">D A N C E A B I L I T Y</th>
+                        <th scope="col">E N E R G Y</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for track in list_dict['danceability'][:10] %}
+                        <tr>
+                            <th class="text-start" scope="row">{{ track['name'] }}</th>
+                            <td>{{ track['artist'] }}</td>
+                            <td>{{ track['valence'] }}</td>
+                            <td>{{ track['danceability'] }}</td>
+                            <td>{{ track['energy'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="energy" class="sub-box px-5 mt-0 mb-5" style="width: 100%; display: none;">
+            <table class="table my-3 px-5 text-center feat-table">
+                <thead>
+                    <tr>
+                        <th class="text-start" scope="col">T I T L E</th>
+                        <th scope="col">A R T I S T</th>
+                        <th scope="col">V A L E N C E</th>
+                        <th scope="col">D A N C E A B I L I T Y</th>
+                        <th scope="col">E N E R G Y</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for track in list_dict['energy'][:10] %}
+                        <tr>
+                            <th class="text-start" scope="row">{{ track['name'] }}</th>
+                            <td>{{ track['artist'] }}</td>
+                            <td>{{ track['valence'] }}</td>
+                            <td>{{ track['danceability'] }}</td>
+                            <td>{{ track['energy'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="profile container-fluid py-5">
+        <h2 class="mx-5 py-5 box-title">All Audio Features on Average</h2>
+        <div class="sub-box px-5 mt-3 mb-5" style="width: 100%;">
+            <table class="table my-3 px-5 text-center feat-table">
+                <thead>
+                    <tr>
+                        <th class="text-start" scope="col">MOOD</th>
+                        <th scope="col">AVERAGE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-start" scope="row">VALENCE</th>
+                        <td>{{ features[0] / 500}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start" scope="row">DANCEABILITY</th>
+                        <td>{{ features[1] / 500}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start" scope="row">ENERGY</th>
+                        <td>{{ features[2] / 500}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start" scope="row">TEMPO</th>
+                        <td>{{ features[3]|round }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="sub-box px-5 mt-3 mb-5" style="width: 100%;">
+            <table class="table my-3 px-5 text-center feat-table">
+                <thead>
+                    <tr>
+                        <th class="text-start" scope="col">PROPERTIES</th>
+                        <th scope="col">AVERAGE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-start" scope="row">LOUDNESS</th>
+                        <td>{{ features[4]|round }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start" scope="row">SPEECHINESS</th>
+                        <td>{{ features[5] }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start" scope="row">INSTRUMENTALNESS</th>
+                        <td>{{ features[6] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="sub-box px-5 mt-3 mb-0" style="width: 100%;">
+            <table class="table my-3 px-5 text-center feat-table">
+                <thead>
+                    <tr>
+                        <th class="text-start" scope="col">CONTEXT</th>
+                        <th scope="col">AVERAGE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-start" scope="row">LIVENESS</th>
+                        <td>{{ features[7] }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start" scope="row">ACOUSTICNESS</th>
+                        <td>{{ features[8] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {#
+        <!--
+    <div class="container-fluid py-3 px-3">
+        <div class="profile">
+            <img class="pfp box " src="{{ image_url }}">
+            <h5 class="display-5 pfp box mx-3">{{ username }}</h5>
+        </div>
+        <div class="box">
+            <div class="profile">
+                <img class="pfp" src="{{ image_url }}">
+                <h5 class="display-5 pfp box mx-3">{{ username }}</h5>
+            </div>
+        </div>
+        <div class="text-center">
+            {% for track in top_tracks[:5] %}
+                <div class="card color box mx-3 my-3">
+                    <img class="card-img-top obj-img" src="{{ track['album']['images'][0]['url'] }}">
+                    <div class="card-body">
+                        {% if track['name'] | length > 15 %}
+                            <h5 class="card-title">{{ track['name'][:13] | trim }}...</h5>
+                        {% else %}
+                            <h5 class="card-title">{{ track['name'] }}</h5>
+                        {% endif %}
+                        <p class="card-text">{{ track['artists'][0]['name']}}</p>
+                    </div>
+                </div>
+            {% endfor%}
+        </div>
+        <div class="text-center">
+            {% for artist in top_artists[:5] %}
+                <div class="card color box mx-3 my-3">
+                    <img class="card-img-top obj-img" src="{{ artist['images'][0]['url'] }}">
+                    <div class="card-body">
+                        {% if artist['name'] | length > 15 %}
+                            <h5 class="card-title">{{ artist['name'][:13] | trim }}...</h5>
+                        {% else %}
+                            <h5 class="card-title">{{ artist['name'] }}</h5>
+                        {% endif %}
+                        <p class="card-text">{{ artist['followers']['total'] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> -->#}
+{% endblock %}
